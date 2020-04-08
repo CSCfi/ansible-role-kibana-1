@@ -1,6 +1,6 @@
 # This file is manged by ansible
 
-{% if kibana_additional_configuration %}
+{% if kibana_additional_configuration is defined %}
 {{ kibana_additional_configuration | to_nice_yaml(indent=2) }}
 {% endif %}
 
