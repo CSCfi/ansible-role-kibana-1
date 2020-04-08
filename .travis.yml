@@ -4,7 +4,7 @@ services: docker
 
 env:
   global:
-    - ROLE_NAME: kibana
+    - ROLE_NAME: kibana-1
   matrix:
     - MOLECULE_DISTRO: centos7
     - MOLECULE_DISTRO: ubuntu1804
@@ -13,11 +13,11 @@ install:
   # Install test dependencies.
   - pip install molecule yamllint ansible-lint docker
 
-#before_script:
-# # Use actual Ansible Galaxy role name for the project directory.
-#  - cd ../
-#  - mv ansible-role-$ROLE_NAME geerlingguy.$ROLE_NAME
-#  - cd geerlingguy.$ROLE_NAME
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-$ROLE_NAME geerlingguy.$ROLE_NAME
+  - cd geerlingguy.$ROLE_NAME
 
 script:
   # Run tests.
