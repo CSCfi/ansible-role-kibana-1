@@ -4,7 +4,7 @@ services: docker
 
 env:
   global:
-    - ROLE_NAME: kibana-1
+    - ROLE_NAME: kibana
   matrix:
     - MOLECULE_DISTRO: centos7
     - MOLECULE_DISTRO: ubuntu1804
@@ -15,11 +15,8 @@ install:
 
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
-  - ls
-  - pwd
-  - ls
   - cd ../
-  - mv ansible-role-$ROLE_NAME geerlingguy.kibana
+  - mv ansible-role-kibana-1 geerlingguy.$ROLE_NAME
   - cd geerlingguy.$ROLE_NAME
 
 script:
