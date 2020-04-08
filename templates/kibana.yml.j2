@@ -1,3 +1,9 @@
+# This file is manged by ansible
+
+{% if kibana_additional_configuration %}
+{{ kibana_additional_configuration | to_nice_yaml(indent=2) }}
+{% endif %}
+
 # Kibana is served by a back end server. This setting specifies the port to use.
 server.port: {{ kibana_server_port }}
 
